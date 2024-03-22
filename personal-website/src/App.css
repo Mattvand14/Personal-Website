@@ -1,0 +1,34 @@
+.header {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+body {
+  transition: background-color 0.3s ease-in-out; /* Add smooth transition for background color change */
+}
+
+header {
+  transition: background-color 0.3s ease-in-out; /* Add smooth transition for background color change */
+}
+
+.black-background {
+  background-color: black;
+  color: white; /* Text color */
+}
+
+.font-change {
+  color: white; /* Change header color to white */
+}
+
+.dark-mode-button {
+  color: black;
+  background-color: rgb(136, 136, 136);
+  position: fixed; /* Change to fixed position to keep the button in the same position regardless of scrolling */
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  z-index: 999; /* Ensure the button is above other content */
+  padding: 10px; /* Add padding for better appearance */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
