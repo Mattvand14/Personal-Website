@@ -17,21 +17,50 @@ header {
 }
 
 .font-change {
-  color: white; /* Change header color to white */
+  color: bisque; 
+}
+
+.audio1{
+  position: absolute; 
+  top: 400px; 
+  left: 10px;  
+}
+
+.audio2{
+  position: absolute; 
+  top: 500px; 
+  left: 10px;  
+}
+
+.audio3{
+  position: absolute; 
+  top: 600px; 
+  left: 10px;  
+}
+
+.audio4{
+  position: absolute;
+  top: 700px; 
+  left: 10px;  
+}
+.audio5{
+  position: absolute; 
+  top: 800px; 
+  left: 10px;  
 }
 
 .dark-mode-button {
   color: black;
   font-weight: bold;
   background-color: rgb(136, 136, 136);
-  position: fixed; /* Change to fixed position to keep the button in the same position regardless of scrolling */
-  top: 10px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
-  z-index: 999; /* Ensure the button is above other content */
-  padding: 10px; /* Add padding for better appearance */
-  border: none; /* Remove border */
-  border-radius: 20px; /* Add border radius for rounded corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  position: fixed;
+  top: 10px; 
+  right: 10px;
+  z-index: 999; 
+  padding: 10px; 
+  border: none; 
+  border-radius: 20px; 
+  cursor: pointer; 
 }
 
 .dark-mode-button {
@@ -49,15 +78,15 @@ header {
 
 .dark-mode-button:hover {
   background-color: bisque;
-  transition: background-color 0.3s ease-in-out; /* Add easing transition */
+  transition: background-color 0.3s ease-in-out;
 }
 
 .profile-pic {
-  width: 150px; /* Set the width of the image */
-  height: auto; /* Maintain aspect ratio */
-  border: 2px solid bisque; /* Add a white border around the image */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
-  position: absolute; /* Position the image absolutely */
-  top: 70px; /* Adjust the top position as needed */
-  left: 10px; /* Adjust the right position as needed */
+  width: 150px;
+  height: auto; 
+  border: 2px solid bisque;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  position: absolute;
+  top: 70px; 
+  left: 10px; 
 }
