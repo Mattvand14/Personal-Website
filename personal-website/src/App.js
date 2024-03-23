@@ -3,13 +3,16 @@ import './App.css'; // Import other component-specific styles
 
 function App() {
   const [isBlackBackground, setIsBlackBackground] = useState(false);
+  const [buttonTitle, setButtonTitle] = useState("Dark Mode");
 
   useEffect(() => {
     // Update the body class when isBlackBackground changes
     if (isBlackBackground) {
       document.body.classList.add('black-background');
+      setButtonTitle("Light Mode");
     } else {
       document.body.classList.remove('black-background');
+      setButtonTitle("Dark Mode");
     }
   }, [isBlackBackground]);
 
@@ -23,10 +26,14 @@ function App() {
         Matthew VanDeusen
       </h1>
       <img className='profile-pic' src="personal-website/src/profile.jpg" alt="" />
-      <button className='dark-mode-button' onClick={toggleBackground}>Dark Mode</button>
+      <button className='dark-mode-button' onClick={toggleBackground}>
+        {buttonTitle}
+      </button>
     </div>
   );
 }
 
 export default App;
+
+
 

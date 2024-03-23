@@ -55,10 +55,9 @@ header {
 .profile-pic {
   width: 150px; /* Set the width of the image */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Make the image round (for circular profile pictures) */
   border: 2px solid bisque; /* Add a white border around the image */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
   position: absolute; /* Position the image absolutely */
   top: 70px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
+  left: 10px; /* Adjust the right position as needed */
 }
