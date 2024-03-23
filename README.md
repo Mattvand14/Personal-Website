@@ -1,2 +1,2 @@
 # Personal-Website
-Creating a personal website using React and Node.js
+This is a personal website to display some personal music I have made.
