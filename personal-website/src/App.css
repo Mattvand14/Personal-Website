@@ -4,16 +4,16 @@
 }
 
 body {
-  transition: background-color 0.3s ease-in-out; /* Add smooth transition for background color change */
+  transition: background-color 0.3s ease-in-out; 
 }
 
 header {
-  transition: background-color 0.3s ease-in-out; /* Add smooth transition for background color change */
+  transition: background-color 0.3s ease-in-out; 
 }
 
 .black-background {
   background-color: black;
-  color: white; /* Text color */
+  color: white; 
 }
 
 .font-change {
@@ -22,6 +22,7 @@ header {
 
 .dark-mode-button {
   color: black;
+  font-weight: bold;
   background-color: rgb(136, 136, 136);
   position: fixed; /* Change to fixed position to keep the button in the same position regardless of scrolling */
   top: 10px; /* Adjust the top position as needed */
@@ -29,6 +30,35 @@ header {
   z-index: 999; /* Ensure the button is above other content */
   padding: 10px; /* Add padding for better appearance */
   border: none; /* Remove border */
-  border-radius: 5px; /* Add border radius for rounded corners */
+  border-radius: 20px; /* Add border radius for rounded corners */
   cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.dark-mode-button {
+  color: black;
+  background-color: rgb(121, 118, 118);
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dark-mode-button:hover {
+  background-color: bisque;
+  transition: background-color 0.3s ease-in-out; /* Add easing transition */
+}
+
+.profile-pic {
+  width: 150px; /* Set the width of the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make the image round (for circular profile pictures) */
+  border: 2px solid bisque; /* Add a white border around the image */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+  position: absolute; /* Position the image absolutely */
+  top: 70px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
 }

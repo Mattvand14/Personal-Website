@@ -19,14 +19,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className={isBlackBackground ? "header font-change" : "header"}>
-          Matthew VanDeusen
-        </h1>
-      </header>
+      <h1 className={isBlackBackground ? "header font-change" : "header"}>
+        Matthew VanDeusen
+      </h1>
+      <img className='profile-pic' src="personal-website/src/profile.jpg" alt="" />
       <button className='dark-mode-button' onClick={toggleBackground}>Dark Mode</button>
     </div>
   );
 }
 
 export default App;
+
