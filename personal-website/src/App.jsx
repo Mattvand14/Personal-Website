@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import profileImage from './profile.jpg';
+import profileImage from './images/profile.jpg';
+import guitarImage from './images/guitarTrans.png';
+import guitarImage2 from './images/trans.png';
 import audioFile1 from './music/1.mp3';
 import audioFile2 from './music/2.mp3';
 import audioFile3 from './music/3.mp3';
@@ -11,9 +13,21 @@ import audioFile6 from './music/6.mp3';
 
 function Header({ isBlackBackground }) {
   return (
-    <h1 className={isBlackBackground ? "header font-change" : "header"}>
-      Matthew VanDeusen
-    </h1>
+    <div className="header-container">
+      <h1 className={isBlackBackground ? "header font-change" : "header"}>
+        Matthew VanDeusen
+      </h1>
+    </div>
+  );
+}
+
+function GuitarDisplay() {
+  return (
+    <div>
+      <img src= {guitarImage} alt="Left Guitar" className="top-guitar" />
+      <img src={guitarImage2} alt="Right Guitar" className="middle-guitar" />
+      <img src={guitarImage} alt="Right Guitar" className="bottom-guitar" />
+    </div>
   );
 }
 
@@ -40,7 +54,6 @@ function Socials() {
 
   return (
     <div className='socials-bar'>
-      <h3>Contact Me:</h3>
       <ul>
         <li>Email: <a href="mailto:mattvand14@gmail.com">mattvand14@gmail.com</a></li>
         <li>Socials:</li>
@@ -78,6 +91,30 @@ function Socials() {
     );
   }
 
+  function MusicDisplay(){
+    // some sort of button or dropdown to display audio files
+
+    return (
+      <div className='music-display'>
+        <AudioFiles/>
+      </div>
+    )
+  }
+
+  function BioDisplay(){
+    //Biography
+    return (
+      <div className='biography'>
+        <p>
+          Music is something that I have grown up with and has had a huge influence on my life.
+          Because of this I decided to create a website where I can upload music, videos, etc.
+        </p>
+      </div>
+
+    )
+
+  }
+
   function useDarkModeEffect() {
     const [isBlackBackground, setIsBlackBackground] = useState(true);
     const [buttonTitle, setButtonTitle] = useState("Dark Mode");
@@ -99,20 +136,27 @@ function Socials() {
   
     return { isBlackBackground, buttonTitle, toggleBackground };
   }
-  
-
-  
 
   function App() {
     const { isBlackBackground, buttonTitle, toggleBackground } = useDarkModeEffect();
-
+    const [showMusicDisplay, setShowMusicDisplay] = useState(false);
+  
+    const handleClick = () => {
+      setShowMusicDisplay(!showMusicDisplay); // Toggle the value of showMusicDisplay
+    };
+  
     return (
       <div className="App">
         <Header isBlackBackground={isBlackBackground} />
+        <GuitarDisplay />
         <Socials />
         <ProfilePic profileImage={profileImage} />
         <DarkModeButton onClick={toggleBackground} buttonTitle={buttonTitle} />
-        <AudioFiles /> 
+        <button className='display-music-button' onClick={handleClick}>
+          {showMusicDisplay ? "Music" : "Music"}
+        </button>
+        {showMusicDisplay && <MusicDisplay />}
+        {/* <BioDisplay/> */}
       </div>
     );
   }
