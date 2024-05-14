@@ -17,6 +17,8 @@ header {
 }
 
 
+
+
 .top-guitar {
   position: absolute;
   top:10px;
@@ -83,6 +85,12 @@ header {
   left: 10px;  
 }
 
+.Medicine{
+  position: absolute; 
+  top: 1000px; 
+  left: 10px;  
+}
+
 .dark-mode-button {
   color: black;
   font-weight: bold;
@@ -125,6 +133,10 @@ header {
   left: 10px; 
 }
 
+.black-border{
+  border-color: black;
+}
+
 .contact {
   position: relative;
 }
@@ -139,6 +151,7 @@ header {
 
 
 .socials-bar h3 {
+  position: absolute;
   margin-right: 10px; 
   color: bisque;
 }
@@ -190,4 +203,23 @@ header {
 .display-music-button:hover {
   background-color:rgb(198, 153, 97);
   cursor: pointer;
+}
+
+.black-button{
+  background-color:black;
+  color: white;
+}
+
+.thumbnail-grid {
+  position: absolute;
+  top:500px;
+  left:200px;
+  gap: 10px; /* Gap between thumbnails */
+}
+
+.thumbnail {
+  width: 20%; /* Ensure images fill their grid cells */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }

@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
+//pics
 import profileImage from './images/profile.jpg';
 import guitarImage from './images/guitarTrans.png';
 import guitarImage2 from './images/trans.png';
-import audioFile1 from './music/1.mp3';
-import audioFile2 from './music/2.mp3';
-import audioFile3 from './music/3.mp3';
-import audioFile4 from './music/4.mp3';
-import audioFile5 from './music/5.mp3';
-import audioFile6 from './music/6.mp3';
+import blackGuitar from './images/blackGuitar.png';
+import blackGuitarFlipped from './images/blackGuitarFlipped.png';
+import jazzSample from './images/jazzSamplePic.jpeg';
+
+//audio
+import audioFile1 from './music/jazzSample.mp3';
+import audioFile2 from './music/choirSample.mp3';
+import audioFile3 from './music/relax.mp3';
+import audioFile4 from './music/fleetingFeeling.mp3';
+import audioFile5 from './music/movie.mp3';
+import audioFile6 from './music/glass.mp3';
+import medicine from './music/Medicine.mp3';
+
 
 
 function Header({ isBlackBackground }) {
@@ -21,19 +30,49 @@ function Header({ isBlackBackground }) {
   );
 }
 
-function GuitarDisplay() {
+// function DisplayMusicThumbnails({ images }) {
+//   return (
+//     <div className="thumbnail-grid">
+//       {images.map((imageUrl, index) => (
+//         <img key={index} src={imageUrl} alt={`Thumbnail ${index}`} className="thumbnail" />
+//       ))}
+//     </div>
+//   );
+// }
+
+
+function GuitarDisplay({ isDarkMode }) {
+  const [leftGuitarImage, setLeftGuitarImage] = useState(guitarImage);
+  const [middleGuitarImage, setMiddleGuitarImage] = useState(guitarImage2);
+  const [bottomGuitarImage, setBottomGuitarImage] = useState(guitarImage);
+
+  useEffect(() => {
+    // Update guitar images based on dark mode state
+    if (isDarkMode) {
+      setLeftGuitarImage(guitarImage);
+      setMiddleGuitarImage(guitarImage2);
+      setBottomGuitarImage(guitarImage);
+    } else {
+      setLeftGuitarImage(blackGuitar);
+      setMiddleGuitarImage(blackGuitarFlipped);
+      setBottomGuitarImage(blackGuitar);
+    }
+  }, [isDarkMode]);
+
   return (
     <div>
-      <img src= {guitarImage} alt="Left Guitar" className="top-guitar" />
-      <img src={guitarImage2} alt="Right Guitar" className="middle-guitar" />
-      <img src={guitarImage} alt="Right Guitar" className="bottom-guitar" />
+      <img src={leftGuitarImage} alt="Left Guitar" className="top-guitar" />
+      <img src={middleGuitarImage} alt="Right Guitar" className="middle-guitar" />
+      <img src={bottomGuitarImage} alt="Right Guitar" className="bottom-guitar" />
     </div>
   );
 }
 
-function ProfilePic({ profileImage }) {
-  return <img className='profile-pic' src={profileImage} alt="" />;
+
+function ProfilePic({ profileImage, isDarkMode }) {
+  return <img className={`profile-pic ${isDarkMode ? '' : 'black-border'}`} src={profileImage} alt="" />;
 }
+
 
 function DarkModeButton({ onClick, buttonTitle }) {
   return (
@@ -43,7 +82,7 @@ function DarkModeButton({ onClick, buttonTitle }) {
   );
 }
 
-function Socials() {
+function Socials({ isDarkMode }) {
   // Define social links data
   const socialLinks = [
     { name: 'Instagram', url: 'https://www.instagram.com/mattvand14/' },
@@ -55,19 +94,21 @@ function Socials() {
   return (
     <div className='socials-bar'>
       <ul>
-        <li>Email: <a href="mailto:mattvand14@gmail.com">mattvand14@gmail.com</a></li>
-        <li>Socials:</li>
-
+        <li style = {{color: isDarkMode ? '': 'black'}}>Email: <a href="mailto:mattvand14@gmail.com" style = {{color: isDarkMode ? '': 'black'}}>mattvand14@gmail.com</a></li>
+        <br />
+        <li style = {{color: isDarkMode ? '': 'black'}}>Socials:</li>
+  
         {/* Render social links */}
         {socialLinks.map((social, index) => (
           <li key={index}>
-            <a href={social.url}>{social.name}</a>
+            <a href={social.url} style={{ color: isDarkMode ? '' : 'black' }}>{social.name}</a>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
 
 
   function AudioFiles() {
@@ -77,7 +118,8 @@ function Socials() {
       { src: audioFile3, className: 'audio3' },
       { src: audioFile4, className: 'audio4' },
       { src: audioFile5, className: 'audio5' },
-      {src: audioFile6, className: 'audio6'}
+      {src: audioFile6, className: 'audio6'},
+      {src: medicine, className: 'Medicine'}
     ];
   
     return (
@@ -91,11 +133,11 @@ function Socials() {
     );
   }
 
-  function MusicDisplay(){
+  function MusicDisplay({isDarkMode}){
     // some sort of button or dropdown to display audio files
 
     return (
-      <div className='music-display'>
+      <div className='music-display' >
         <AudioFiles/>
       </div>
     )
@@ -141,25 +183,33 @@ function Socials() {
     const { isBlackBackground, buttonTitle, toggleBackground } = useDarkModeEffect();
     const [showMusicDisplay, setShowMusicDisplay] = useState(false);
   
+    const images = [
+      jazzSample
+    ];
+
+
     const handleClick = () => {
       setShowMusicDisplay(!showMusicDisplay); // Toggle the value of showMusicDisplay
     };
   
     return (
-      <div className="App">
+      <div className={`App ${isBlackBackground ? 'dark-mode' : ''}`}>
         <Header isBlackBackground={isBlackBackground} />
-        <GuitarDisplay />
-        <Socials />
-        <ProfilePic profileImage={profileImage} />
+        <GuitarDisplay isDarkMode={isBlackBackground} />
+        <Socials isDarkMode={isBlackBackground} />
+        <ProfilePic profileImage={profileImage} isDarkMode={isBlackBackground} />
         <DarkModeButton onClick={toggleBackground} buttonTitle={buttonTitle} />
         <button className='display-music-button' onClick={handleClick}>
-          {showMusicDisplay ? "Music" : "Music"}
+          {showMusicDisplay ? "Hide Music" : "Show Music"}
         </button>
+        {/* <DisplayMusicThumbnails images={images} /> */}
         {showMusicDisplay && <MusicDisplay />}
         {/* <BioDisplay/> */}
       </div>
     );
   }
+  
+  
 
 export default App;
 
